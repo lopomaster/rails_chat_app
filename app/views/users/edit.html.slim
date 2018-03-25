@@ -1,0 +1,9 @@
+.container
+  h1 Editing User
+  = render 'form', user: @user, btn_txt: 'Edit'
+
+
+
+  .form-space.inline
+    = link_to 'Show', @user, class: 'btn btn-primary'
+    = link_to 'Users', users_path, class: 'btn btn-primary marginleft10'

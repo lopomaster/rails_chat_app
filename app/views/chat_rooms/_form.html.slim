@@ -1,0 +1,15 @@
+= form_for chat_room, remote: true do |form|
+  - if chat_room.errors.any?
+    #error_explanation
+      h2
+        = pluralize(chat_room.errors.count, "error")
+        | prohibited this chat_room from being saved:
+      ul
+        - chat_room.errors.full_messages.each do |message|
+          li= message
+  .field
+    = form.label :title
+    = form.text_field :title, id: :chat_room_title, class: 'form-control'
+  .actions.form-space
+    = form.submit "Send", class: 'btn btn-primary btn-lg'
+

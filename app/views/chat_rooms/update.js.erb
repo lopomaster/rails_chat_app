@@ -1,0 +1,3 @@
+$('#modal').modal('hide');
+$("#chat_room_<%= @chat_room.id %>").html("<%= j render 'row', { chat_room: @chat_room }%>");
+

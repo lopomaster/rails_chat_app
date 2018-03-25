@@ -1,0 +1,11 @@
+.container
+
+  h1 User
+  p
+    strong Name:
+    = @user.name
+
+
+  .inline.form-space
+    = link_to 'Edit', edit_user_path(@user), class: 'btn btn-primary'
+    = link_to 'Users', users_path, class: 'btn btn-primary marginleft10'

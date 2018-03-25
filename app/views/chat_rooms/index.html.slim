@@ -1,0 +1,8 @@
+.container
+  h1 Chat rooms
+
+  #chat_rooms = render partial: 'table', locals: {chat_rooms: @chat_rooms }
+
+  .inline.form-space
+    = link_to 'New chat room', new_chat_room_path, class: 'btn btn-primary', remote: true
+    = link_to 'Users', users_path, class: 'btn btn-primary marginleft10'

@@ -1,0 +1,6 @@
+td= chat_room.title
+td= link_to 'Show', chat_room
+td= link_to 'Edit', edit_chat_room_path(chat_room), remote: true
+
+- if chat_room.messages.empty?
+  td= link_to 'Destroy', chat_room, method: :delete, data: { confirm: 'Are you sure?' }

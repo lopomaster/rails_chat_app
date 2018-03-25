@@ -1,0 +1,14 @@
+section data-channel="chat_rooms" data-chat-room-id="#{@chat_room.id}"
+p
+.container
+  strong Chat Room:
+  = @chat_room.title
+.form-space
+.container id=("chat_room_messages_#{ @chat_room.id }")
+  = render @chat_room.messages
+.container
+  = render partial: 'messages/form', locals: { chat_room: @chat_room, message: @message }
+
+  .inline.form-space
+    = link_to 'Edit', edit_chat_room_path(@chat_room), class: 'btn btn-primary'
+    = link_to 'Back', chat_rooms_path, class: 'btn btn-primary marginleft10'
