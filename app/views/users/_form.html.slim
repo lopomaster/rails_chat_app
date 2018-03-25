@@ -1,5 +1,5 @@
 - btn_text ||= params[:action]
-#login= form_with(model: user, local: true) do |f|
+#user_form= form_with(model: user, local: true) do |f|
   - if user.errors.any?
     #error_explanation
       h2 = pluralize(user.errors.count, "error")
@@ -12,3 +12,6 @@
     = f.text_field :name, id: :user_name, class: 'form-control', placeholder: :name, 'v-model': 'name'
   .actions.form-space
     = f.submit btn_text, class: 'btn btn-primary btn-lg', 'v-bind:disabled': '!isFormValid()'
+
+javascript:
+  user_vue_observer();

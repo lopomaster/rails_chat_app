@@ -1,7 +1,7 @@
 
 function user_vue_observer(){
     var user_vue = new Vue({
-        el: '#login',
+        el: '#user_form',
         data: {
             name: ''
         },
