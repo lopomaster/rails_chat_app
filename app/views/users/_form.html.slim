@@ -1,5 +1,5 @@
 - btn_text ||= params[:action]
-= form_with(model: user, local: true) do |form|
+#login= form_with(model: user, local: true) do |f|
   - if user.errors.any?
     #error_explanation
       h2 = pluralize(user.errors.count, "error")
@@ -9,6 +9,6 @@
       li= message
 
   .field.form-space
-    = form.text_field :name, id: :user_name, class: 'form-control', placeholder: :name
+    = f.text_field :name, id: :user_name, class: 'form-control', placeholder: :name, 'v-model': 'name'
   .actions.form-space
-    = form.submit btn_text, class: 'btn btn-primary btn-lg'
+    = f.submit btn_text, class: 'btn btn-primary btn-lg', 'v-bind:disabled': '!isFormValid()'
