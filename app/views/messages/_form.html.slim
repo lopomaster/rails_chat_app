@@ -4,7 +4,7 @@
     = f.text_area :body,{ class: 'form-control', placeholder: 'write a message', 'v-model': 'body' }
     small.text-muted From 2 to 1000 characters
   .form-space
-  = f.submit "Post", class: 'btn btn-primary btn-lg', 'v-bind:disabled': '!isFormValid()'
+  = f.submit "Post", class: 'btn btn-primary btn-lg', 'v-bind:disabled': '!isFormValid()',  'v-on:click': 'resetForm($event)'
 
 javascript:
     message_vue_observer();
