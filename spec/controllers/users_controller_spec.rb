@@ -34,7 +34,7 @@ RSpec.describe UsersController, type: :controller do
     it "cannot create a user w/ nil attributes so it renders the :new template" do
       expect{ post :create, params: { user: FactoryGirl.attributes_for(:user, name: nil ) } }.
           to change(User, :count).by(0)
-      expect(response).to render_template :new
+      expect(response).to redirect_to root_path
     end
   end
 
@@ -70,6 +70,13 @@ RSpec.describe UsersController, type: :controller do
       expect(response).to have_http_status 302
       expect( response ).to redirect_to users_url
     end
+
+    it "cannot delete an user with a message" do
+      create :message, user: @user
+      expect{delete :destroy, params: { id: @user }}.to change(User, :count).by(0)
+      expect(response).to redirect_to users_path
+    end
+
   end
 
 

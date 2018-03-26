@@ -69,6 +69,13 @@ RSpec.describe ChatRoomsController, type: :controller do
       expect(response).to have_http_status 302
       expect( response ).to redirect_to chat_rooms_url
     end
+
+    it "cannot delete a chat_room with a message" do
+      create :message, chat_room: @chat_room
+      expect{delete :destroy, params: { id: @chat_room }}.to change(ChatRoom, :count).by(0)
+      expect(response).to redirect_to chat_rooms_path
+    end
+
   end
 
 
