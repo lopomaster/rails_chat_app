@@ -49,9 +49,9 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  Rails.configuration.webpack.dev_server.https = true
+  # Rails.configuration.webpack.dev_server.https = true
   # config.webpack.dev_server.enabled = true
-  config.webpack.dev_server.enabled = false
+  # config.webpack.dev_server.enabled = false
 
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
