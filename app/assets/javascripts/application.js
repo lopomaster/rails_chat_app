@@ -17,7 +17,7 @@
 //= require vue
 //= require popper
 //= require bootstrap
+
 //= require_tree .
 
-//= require observer.js
 //= require_tree ./channels

@@ -8,6 +8,10 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    respond_to do |format|
+      format.html
+      format.json { render :json => @users.to_json( methods: [:destroyable]) }
+    end
   end
 
   # GET /users/1
@@ -57,9 +61,9 @@ class UsersController < ApplicationController
   # DELETE /users/1.json
   def destroy
     respond_to do |format|
-      if @user.messages.empty? and @user.destroy
+      if @user.destroyable and @user.destroy
         format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-        format.json { head :no_content }
+        format.json { render :json => User.all }
       else
         format.html { redirect_to users_url, notice: 'User cannot be destroyed.' }
         format.json { render json: @user.errors, status: :unprocessable_entity }
